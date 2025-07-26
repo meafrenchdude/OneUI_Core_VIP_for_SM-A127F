@@ -1,0 +1,137 @@
+##floating_feature.xml
+
+#Enable flagship launcher animations
+
+ - <SEC_FLOATING_FEATURE_LAUNCHER_CONFIG_ANIMATION_TYPE>LowEnd</SEC_FLOATING_FEATURE_LAUNCHER_CONFIG_ANIMATION_TYPE>
+ + <SEC_FLOATING_FEATURE_LAUNCHER_CONFIG_ANIMATION_TYPE>HighEnd</SEC_FLOATING_FEATURE_LAUNCHER_CONFIG_ANIMATION_TYPE>
+
+#Enable processing speed
+
+ + <SEC_FLOATING_FEATURE_SYSTEM_SUPPORT_ENHANCED_PROCESSING>TRUE</SEC_FLOATING_FEATURE_SYSTEM_SUPPORT_ENHANCED_PROCESSING>
+
+#Enable performance profile
+
+ + <SEC_FLOATING_FEATURE_SYSTEM_SUPPORT_LOW_HEAT_MODE>TRUE</SEC_FLOATING_FEATURE_SYSTEM_SUPPORT_LOW_HEAT_MODE>
+
+#Enable high performance mode
+
+ + <SEC_FLOATING_FEATURE_COMMON_SUPPORT_HIGH_PERFORMANCE_MODE>TRUE</SEC_FLOATING_FEATURE_COMMON_SUPPORT_HIGH_PERFORMANCE_MODE>
+
+ + <SEC_FLOATING_FEATURE_SYSTEM_SUPPORT_ENHANCED_CPU_RESPONSIVENESS>TRUE</SEC_FLOATING_FEATURE_SYSTEM_SUPPORT_ENHANCED_CPU_RESPONSIVENESS>
+
+#Enable Enable smooth scroll of surface flinger
+
+ + <SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_SMOOTH_SCROLL>TRUE</SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_SMOOTH_SCROLL>
+
+#Enable Dolby Atmos without headsets
+/!\ Needs a special SoundAlive app version
+
+ + <SEC_FLOATING_FEATURE_AUDIO_SUPPORT_DUAL_SPEAKER>TRUE</SEC_FLOATING_FEATURE_AUDIO_SUPPORT_DUAL_SPEAKER>
+
+ - <SEC_FLOATING_FEATURE_AUDIO_CONFIG_SOUNDALIVE_VERSION>eq_custom,uhq_switch,uhq_level,adapt,karaoke,dvfs_30_percent</SEC_FLOATING_FEATURE_AUDIO_CONFIG_SOUNDALIVE_VERSION>
+ + <SEC_FLOATING_FEATURE_AUDIO_CONFIG_SOUNDALIVE_VERSION>eq_knob,eq_custom,uhq_switch,uhq_level,adapt,spk_stereo,dvfs_860000,tube,concert</SEC_FLOATING_FEATURE_AUDIO_CONFIG_SOUNDALIVE_VERSION>
+
+#Enable multiwindow tray
+
+ + <SEC_FLOATING_FEATURE_COMMON_CONFIG_MULTIWINDOW_TRAY>TRUE</SEC_FLOATING_FEATURE_COMMON_CONFIG_MULTIWINDOW_TRAY>
+ 
+#60 Hz refresh rate as default 
+ 
+  - <SEC_FLOATING_FEATURE_LCD_CONFIG_HFR_SUPPORTED_REFRESH_RATE>0</SEC_FLOATING_FEATURE_LCD_CONFIG_HFR_SUPPORTED_REFRESH_RATE>
+  + <SEC_FLOATING_FEATURE_LCD_CONFIG_HFR_SUPPORTED_REFRESH_RATE>60</SEC_FLOATING_FEATURE_LCD_CONFIG_HFR_SUPPORTED_REFRESH_RATE>
+  
+  + <SEC_FLOATING_FEATURE_LCD_SUPPORT_SELFMASK>TRUE</SEC_FLOATING_FEATURE_LCD_SUPPORT_SELFMASK>
+
+#Advanced screen capture
+
+ + <SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_SCREEN_CAPTURE_ADVANCED_EDIT_VI>TRUE</SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_SCREEN_CAPTURE_ADVANCED_EDIT_VI>
+
+ + <SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_SCREEN_RECORDER>TRUE</SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_SCREEN_RECORDER>
+
+#Enable Secure WiFi
+
+ + <SEC_FLOATING_FEATURE_WLAN_SUPPORT_SECURE_WIFI>TRUE</SEC_FLOATING_FEATURE_WLAN_SUPPORT_SECURE_WIFI>
+
+#Enable more Voicerecorder modes
+
+ - <SEC_FLOATING_FEATURE_VOICERECORDER_CONFIG_DEF_MODE>normal</SEC_FLOATING_FEATURE_VOICERECORDER_CONFIG_DEF_MODE>
+
+ + <SEC_FLOATING_FEATURE_VOICERECORDER_CONFIG_DEF_MODE>normal,interview,voicememo</SEC_FLOATING_FEATURE_VOICERECORDER_CONFIG_DEF_MODE>
+
+#Enable more keyboard options
+
+ - <SEC_FLOATING_FEATURE_CAMERA_CONFIG_STRIDE_OCR_VERSION>None</SEC_FLOATING_FEATURE_CAMERA_CONFIG_STRIDE_OCR_VERSION>
+
+ + <SEC_FLOATING_FEATURE_CAMERA_CONFIG_STRIDE_OCR_VERSION>V2</SEC_FLOATING_FEATURE_CAMERA_CONFIG_STRIDE_OCR_VERSION>
+
+
+#
+
+
+##build.prop
+
+#Camera tweaks
+
+ + ro.media.enc.jpeg.quality=100
+ + ro.media.dec.jpeg.memcap=8000000
+ + ro.media.enc.hprof.vid.bps=8000000
+ + ro.media.capture.maxres=8m
+ + ro.media.panorama.defres=3264×1840
+ + ro.media.panorama.frameres=1280×720
+ + ro.camcorder.videoModes=true
+ + ro.media.enc.hprof.vid.fps=65
+ + ro.camera.enableCamera1MaxZsl=1
+ + camera.disable_zsl_mode=1
+
+#Faster streaming videos
+
+ + media.stagefright.enable-meta=true
+ + media.stagefright.enable-scan=true
+ + media.stagefright.enable-http=true
+ + media.stagefright.enable-rtsp=true
+ + media.stagefright.enable-record=false
+
+#Better net speeds
+
+ + net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960
+ + net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960
+ + net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960
+ + net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960
+ + net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960
+
+#Phone rings immediatly
+
+ + ro.telephony.call_ring.delay=0
+ + ring.delay=0
+
+#Better voice quality
+
+ + ro.ril.enable.amr.wideband=1
+
+#Better signal
+
+ + persist.cust.tel.eons=1
+ + ro.config.hw_fast_dormancy=1
+
+#Faster boot time
+
+ + persist.sys.shutdown.mode=hibernate
+ + ro.config.hw_quickpoweron=true
+
+#Multi-users
+
+ + fw.max_users=5
+ + fw.show_multiuserui=1
+ + fw.showhiddenusers=1 
+ + fw.poweruserswitcher=1
+
+#Enable Vulkan
+
+ + ro.hwui.use_vulkan=1
+
+#Extra Dim
+/!\ Add in /vendor too
+
+ + ro.surface_flinger.protected_contents=true
+
+##END.
